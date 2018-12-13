@@ -56,12 +56,12 @@
             font-size: 100px;
             text-align: left;
         }
-        thumbnail {
+        .thumbnail {
             padding: 0 0 20px 0;
             border: none;
             border-radius: 0;
         }
-      .thumbnail img {
+        .thumbnail img {
             width: 100%;
             height: 100%;
             margin-bottom: 10px;
@@ -221,7 +221,7 @@
 
 <div class="jumbotron text-center">
   <br><h2>ASTROLOGY CENTRAL</h2>
-  <p> There are 12 signs of the zodiac each relating to the day you were born.<br>Humans have been interested in the stars, and the ways they affect us, their strong influence on our personality, character, plus emotions, for years. <br>Your star sign is a powerful tool for understanding yourself and
+  <p> There are 12 signs of the zodiac each relating to the day you were born.<br>For years, humans have been interested in the stars; the ways they affect us, their strong influence on our personality, character, and emotions. <br>Your star sign is a powerful tool for understanding yourself and
     your relationships.<!--, is most evident in your zodiac or star signs.    and how this will affect your life.-->
     <br>Our hope at Astrology Central is that everyone should be able to find out what their star sign
     is and then understand the different characteristics that they may exhibit as a result.</p>
@@ -241,11 +241,10 @@
         <img class="irc_mi" src="https://cf.ltkcdn.net/horoscopes/images/slide/55030-689x800-SS-symbol-1.jpg" width="400" height="450" style="margin-top: 0px;" alt="Related image">
         </div>
     </div>
-
-
 <!-- Container (Services Section) -->
 <div id="services" class="container-fluid text-center">
   <h2>Star Sign Fun Facts</h2>
+<<<<<<< HEAD:codefirstproject3gems.html
   <h4>Enter your date of birth and press Submit Submit</h4>
   <!--<h4>Below are some of the facts and characteristics for each star sign</h4>-->
   <br>
@@ -256,6 +255,58 @@
         <button type="button" class="btn btn-info">Submit</button>
       </div>
     </div>
+=======
+  <h4>Select your <strong>birth day and month, </strong>then press submit to reveal your star sign</h4>
+  <!--<p>Enter your birth day and month, then press Submit</p>-->
+   Day: <select id='days'>
+     <option value='0'>1</option>
+     <option value='1'>1</option>
+     <option value='2'>2</option>
+     <option value='3'>3</option>
+     <option value='4'>4</option>
+     <option value='5'>5</option>
+     <option value='6'>6</option>
+     <option value='7'>7</option>
+     <option value='8'>8</option>
+     <option value='9'>9</option>
+     <option value='10'>10</option>
+     <option value='11'>11</option>
+     <option value='12'>12</option>
+     <option value='13'>13</option>
+     <option value='14'>14</option>
+     <option value='15'>15</option>
+     <option value='16'>16</option>
+     <option value='17'>17</option>
+     <option value='18'>18</option>
+     <option value='19'>19</option>
+     <option value='20'>20</option>
+     <option value='21'>21</option>
+     <option value='22'>22</option>
+     <option value='23'>23</option>
+     <option value='24'>24</option>
+     <option value='25'>25</option>
+     <option value='26'>26</option>
+     <option value='27'>27</option>
+     <option value='28'>28</option>
+     <option value='29'>29</option>
+     <option value='30'>30</option>
+     <option value='31'>31</option></select>
+   Month: <select id='month'>
+     <option value='1'>January</option>
+     <option value='2'>February</option>
+     <option value='3'>March</option>
+     <option value='4'>April</option>
+     <option value='5'>May</option>
+     <option value='6'>June</option>
+     <option value='7'>July</option>
+     <option value='8'>August</option>
+     <option value='9'>September</option>
+     <option value='10'>October</option>
+     <option value='11'>November</option>
+     <option value='12'>December</option></select>
+     <input type='button' id='test' value='Submit'><br>
+     <br><h4 id='zodiac'><em>Your star sign will appear here</em></h4><form action='#' method='post'>
+>>>>>>> master:index.html
   </form>
   <br>
   <div class="row slideanim">
@@ -583,7 +634,7 @@
       <textarea class="form-control" id="comments" name="comments" placeholder="Your message" rows="5"></textarea><br>
       <div class="row">
         <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-left" type="submit">Submit</button>
+          <button class="btn btn-info pull-left" type="submit">Submit</button>
         </div>
       </div>
     </div>
@@ -595,7 +646,7 @@
   <a href="#myPage" title="To Top">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a>
-  <p>This website is created and designed by <strong>the threegems</strong>. <!--sources include:<a href="https://www.horoscope.com/zodiac-signs/aries"</a>;<a href="https://www.tarot.com/astrology/zodiac-sign-colors"</a>--></p>
+  <p>This website is created and designed by <a href="#about">the threegems</strong></a></p><!--sources include:<a href="https://www.horoscope.com/zodiac-signs/aries"</a>;<a href="https://www.tarot.com/astrology/zodiac-sign-colors"</a>--></p>
 </footer>
 
 <script>
@@ -634,6 +685,14 @@ $(document).ready(function(){
   });
 })
 
+  function zodiac(day, month){
+   var zodiac =['', 'Capricorn', 'Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn'];
+   var last_day =['', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19];
+   return (day > last_day[month]) ? zodiac[month*1 + 1] : zodiac[month];
+  }
+  document.getElementById('test').onclick = function(){
+   document.getElementById('zodiac').innerHTML = zodiac(document.getElementById('days').value, document.getElementById('month').value);
+  }
 </script>
 <img src= "https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_960_720.jpg" width="1600" height="400">
 </style>
