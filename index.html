@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Astrology Central</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+        body {
+            font: 400 19px Lato, helvetica, sans-serif;
+            line-height: 1.8;
+            font-weight: 100;
+            color: purple;
+        }
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+            font-family: Montserrat, sans-serif;
+        }
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .jumbotron {
+            background-color: white;
+            color: purple;
+            font-weight: 100;
+            text-align: justify;
+            padding: 50px 25px;
+            font-family: Lato, helvetica, sans-serif;
+        }
+        .container-fluid {
+            padding: 50px 50px;
+            background-image: "https://www.universetoday.com/wp-content/uploads/2010/08/The-Brightest-of-Stars.jpg";
+        }
+        .bg-grey {
+            background-color: white;
+            text-align: center;
+        }
+        .logo-small {
+            color: #f4511e;
+            font-size: 50px;
+        }
+        .logo {
+            color: #f4511e;
+            font-size: 100px;
+            text-align: left;
+        }
+        .thumbnail {
+            padding: 0 0 20px 0;
+            border: none;
+            border-radius: 0;
+        }
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+        }
+        .carousel-control.right, .carousel-control.left {
+            background-image: "https://www.universetoday.com/wp-content/uploads/2010/08/The-Brightest-of-Stars.jpg">;
+            color: purple;
+        }
+        .carousel-indicators li {
+            border-color: #f4511e;
+        }
+        .carousel-indicators li.active {
+            background-color: white;
+        }
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+        .item span {
+            font-style: normal;
+        }
+        .panel {
+            border: 1px solid #f4511e;
+            border-radius:0 !important;
+            transition: box-shadow 1.0s;
+        }
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+        }
+        .panel-footer .btn:hover {
+            border: 1px solid #f4511e;
+            background-color: #0000 !important;
+            color: #f4511e;
+        }
+        .panel-heading {
+            color: #fff !important;
+            background-color: white !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+        .panel-footer {
+            background-color: white !important;
+        }
+        .panel-footer h3 {
+            font-size: 32px;
+        }
+        .panel-footer h4 {
+            color: #aaa;
+            font-size: 14px;
+        }
+        .panel-footer .btn {
+            margin: 15px 0;
+            background-color: #f4511e;
+            color: #fff;
+        }
+        .navbar {
+            margin-bottom: 0;
+            background-color: #7E50C5;
+            z-index: 9999;
+            border: 0;
+            font-size: 16px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+            font-family: Montserrat, sans-serif;
+        }
+        .navbar li a, .navbar .navbar-brand {
+            color: #fff !important;
+        }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: white !important;
+            background-color: black !important;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+        footer .glyphicon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #f4511e;
+        }
+        .slideanim {visibility:hidden;}
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+        @keyframes slide {
+          0% {
+            opacity: 0;
+            transform: translateY(70%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0%);
+          }
+        }
+        @-webkit-keyframes slide {
+          0% {
+            opacity: 0;
+            -webkit-transform: translateY(70%);
+          }
+          100% {
+            opacity: 1;
+            -webkit-transform: translateY(0%);
+          }
+        }
+        @media screen and (max-width: 768px) {
+          .col-sm-4 {
+            text-align: center;
+            margin: 25px 0;
+          }
+          .btn-lg {
+              width: 100%;
+              margin-bottom: 35px;
+          }
+        }
+        @media screen and (max-width: 480px) {
+          .logo {
+              font-size: 150px;
+          }
+        }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#myPage"><strong>Astrology Central</strong></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-center">
+        <li><a href="#about"><strong>About Us</strong></a></li>
+        <li><a href="#services"><strong>Star Sign Fun Facts</strong></a></li>
+        <li><a href="#portfolio"><strong>Astrology in Detail</strong></a></li>
+        <li><a href="#contact"><strong>Contact Us</strong></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <br><h2>ASTROLOGY CENTRAL</h2>
+  <p> There are 12 signs of the zodiac each relating to the day you were born.<br>For years, humans have been interested in the stars; the ways they affect us, their strong influence on our personality, character, and emotions. <br>Your star sign is a powerful tool for understanding yourself and
+    your relationships.<!--, is most evident in your zodiac or star signs.    and how this will affect your life.-->
+    <br>Our hope at Astrology Central is that everyone should be able to find out what their star sign
+    is and then understand the different characteristics that they may exhibit as a result.</p>
+</div>
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-8" style="margin-top: 0px;">
+      <h2>About Us</h2>
+      <p>We are <strong>the threegems</strong>. Established in 2018, as part of a codefirstgirls project competition.
+        <br>We are passionate about teaching people about their zodiac signs. <br> We believe that finding out about one's zodiac sign should be simple via an easy to use website.
+        <br>We have a strong belief that we are going to win and go on to be a big player in the zodiac sign industry</p>
+      <br><h2>Our Vision</h2>
+      <p>For you to learn some of the main aspects of your star sign and how it may affect your relationships, the way you behave and gain more insight into who you are.</p>
+    </div>
+        <div class="col-sm-4">
+        <img class="irc_mi" src="https://cf.ltkcdn.net/horoscopes/images/slide/55030-689x800-SS-symbol-1.jpg" width="400" height="450" style="margin-top: 0px;" alt="Related image">
+        </div>
+    </div>
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>Star Sign Fun Facts</h2>
+  <h4>Select your <strong>birth day and month, </strong>then press submit to reveal your star sign</h4>
+  <!--<p>Enter your birth day and month, then press Submit</p>-->
+   Day: <select id='days'>
+     <option value='0'>1</option>
+     <option value='1'>1</option>
+     <option value='2'>2</option>
+     <option value='3'>3</option>
+     <option value='4'>4</option>
+     <option value='5'>5</option>
+     <option value='6'>6</option>
+     <option value='7'>7</option>
+     <option value='8'>8</option>
+     <option value='9'>9</option>
+     <option value='10'>10</option>
+     <option value='11'>11</option>
+     <option value='12'>12</option>
+     <option value='13'>13</option>
+     <option value='14'>14</option>
+     <option value='15'>15</option>
+     <option value='16'>16</option>
+     <option value='17'>17</option>
+     <option value='18'>18</option>
+     <option value='19'>19</option>
+     <option value='20'>20</option>
+     <option value='21'>21</option>
+     <option value='22'>22</option>
+     <option value='23'>23</option>
+     <option value='24'>24</option>
+     <option value='25'>25</option>
+     <option value='26'>26</option>
+     <option value='27'>27</option>
+     <option value='28'>28</option>
+     <option value='29'>29</option>
+     <option value='30'>30</option>
+     <option value='31'>31</option></select>
+   Month: <select id='month'>
+     <option value='1'>January</option>
+     <option value='2'>February</option>
+     <option value='3'>March</option>
+     <option value='4'>April</option>
+     <option value='5'>May</option>
+     <option value='6'>June</option>
+     <option value='7'>July</option>
+     <option value='8'>August</option>
+     <option value='9'>September</option>
+     <option value='10'>October</option>
+     <option value='11'>November</option>
+     <option value='12'>December</option></select>
+     <input type='button' id='test' value='Submit'><br>
+     <br><h4 id='zodiac'><em>Your star sign will appear here</em></h4><form action='#' method='post'>
+  </form>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186664.png" alt="Aries" title="Aries" width="64" height="64">
+      <h4>ARIES</h4>
+      <p><strong>Mar 21 - Apr 19 </strong></p>
+      <p>Power color is <strong>Red</strong>. Element is <strong>Fire</strong>. <br>Top Love Matches are <strong>Leo and Sagittarius</strong>
+        <br><strong>A</strong> for assertive
+        <br><strong>R</strong> for refreshing
+        <br><strong>I</strong> for independent
+        <br><strong>E</strong> for energetic
+        <br><strong>S</strong> for sexy
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4" style=text-align: justify>
+      <img src="https://image.flaticon.com/icons/png/128/186/186665.png" alt="Taurus" title="Taurus" width="64" height="64">
+      <h4>TAURUS</h4>
+      <p><strong>Apr 20 - May 20 </strong></p>
+    <p>Power colour is <strong>Green</strong>. Element is <strong>Earth</strong>. <br>Top Love Matches are <strong>Virgo and Capricon</strong>
+        <br><strong>T</strong> for trailblazing
+        <br><strong>A</strong> for ambitious
+        <br><strong>U</strong> for unwavering
+        <br><strong>R</strong> for reliable
+        <br><strong>U</strong> for understanding
+        <br><strong>S</strong> for stable
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186666.png" alt="Gemini" title="Gemini" width="64" height="64">
+      <h4>GEMINI</h4>
+      <p><strong>May 21 - Jun 20 </strong></p>
+      <p>Power colour is <strong>Yellow</strong>. Element is <strong>Air</strong>. <br>Top Love Matches are <strong>Libra and Aquarius</strong>
+        <br><strong>G</strong> for generous
+        <br><strong>E</strong> for emotionally in tune
+        <br><strong>M</strong> for motivated
+        <br><strong>I</strong> for imaginative
+        <br><strong>N</strong> for nice
+        <br><strong>I</strong> for intelligent
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186667.png" alt="Cancer" title="Cancer" width="64" height="64">
+      <h4>CANCER</h4>
+      <p><strong>Jun 21 - Jul 22 </strong></p>
+      <p>Power colours are <strong>white and silver</strong>. Element is <strong>Water</strong>. <br>Top Love Match is <strong>Pisces</strong>
+        <br><strong>C</strong> for caring
+        <br><strong>A</strong> for ambitious
+        <br><strong>N</strong> for nourishing
+        <br><strong>C</strong> for creative
+        <br><strong>E</strong> for emotionally intelligent
+        <br><strong>R</strong> for resilient
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186668.png" alt="Leo" title="Leo" width="64" height="64">
+      <h4>LEO</h4>
+      <p><strong>Jul 23 - Aug 22 </strong></p>
+      <p>Power colour is <strong>Gold</strong>. Element is <strong>Fire</strong>. <br>Top Love Matches are <strong>Aries and Sagittarius</strong>
+        <br><strong>L</strong> for leaders
+        <br><strong>E</strong> for energetic
+        <br><strong>O</strong> for optimistic
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+        <br>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186669.png" alt="Virgo" title="Virgo" width="64" height="64">
+      <h4>VIRGO</h4>
+      <p><strong>Aug 23 - Sep 22 </strong></p>
+      <p>Power colours are <strong>Green and Brown</strong>. Element is <strong>Earth</strong>. <br>Top Love Matches are <strong>Taurus and Capricon</strong>
+        <br><strong>V</strong> for virtuous
+        <br><strong>I</strong> for intelligent
+        <br><strong>R</strong> for responsible
+        <br><strong>G</strong> for generous
+        <br><strong>O</strong> for optimistic
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+            <br>
+      </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186670.png" alt="Libra" title="Libra" width="64" height="64">
+      <h4>LIBRA</h4>
+      <p><strong>Sep 23 - Oct 22 </strong></p>
+      <p>Power colours are <strong>Pink and Blue</strong>. Element is <strong>Air</strong>. <br>Top Love Matches are <strong>Gemini and Aquarius</strong>
+        <br><strong>L</strong> for loyal
+        <br><strong>I</strong> for inquisitive
+        <br><strong>B</strong> for balanced
+        <br><strong>R</strong> for responsible
+        <br><strong>A</strong> for altruistic
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/svg/186/186671.svg" width="64" height="64" alt="Scorpio free icon" title="Scorpio free icon">
+      <h4>SCOPIO</h4>
+      <p><strong>Oct 23 - Nov 21 </strong></p>
+      <p>Power colour is <strong>Black</strong>. Element is <strong>Water</strong>. <br>Top Love Match is <strong>Pisces</strong>
+        <br><strong>S</strong> for seductive
+        <br><strong>C</strong> for cerebral
+        <br><strong>O</strong> for original
+        <br><strong>R</strong> for reactive
+        <br><strong>P</strong> for passionate
+        <br><strong>I</strong> for intuituve
+        <br><strong>O</strong> for outstanding
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186672.png" alt="Sagittarius" title="Sagittarius" width="64" height="64">
+      <h4>SAGGITARIUS</h4>
+      <p><strong>Nov 22 - Dec 21 </strong></p>
+      <p>Power colour is <strong>Purple</strong>. Element is <strong>Fire</strong>. <br>Top Love Matches are <strong>Aries and Leo</strong>
+        <br><strong>S</strong> for Seductive
+        <br><strong>A</strong> for Adventurous
+        <br><strong>G</strong> for Grateful
+        <br><strong>G</strong> for intelligent
+        <br><strong>I</strong> for trailblazing
+        <br><strong>T</strong> for tenacious
+        <br><strong>A</strong> for adept
+        <br><strong>R</strong> for responsible
+        <br><strong>I</strong> for idealistic
+        <br><strong>U</strong> for unparalled
+        <br><strong>S</strong> for sophisticated
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186673.png" alt="Capricornus" title="Capricornus" width="64" height="64">
+      <h4>CAPRICON</h4>
+      <p><strong>Dec 22 - Jan 19 </strong></p>
+      <p>Power colours are <strong>Brown and Grey</strong>. Element is <strong>Earth</strong>. <br>Top Love Matches are <strong>Taurus and Virgo</strong>
+        <br><strong>C</strong> for confident
+        <br><strong>A</strong> for analytical
+        <br><strong>P</strong> for practical
+        <br><strong>R</strong> for responsible
+        <br><strong>I</strong> for inteligent
+        <br><strong>C</strong> for caring
+        <br><strong>O</strong> for organized
+        <br><strong>R</strong> for realistic
+        <br><strong>N</strong> for neat
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186674.png" alt="Aquarius" title="Aquarius" width="64" height="64">
+      <h4>AQUARIUS</h4>
+      <p><strong>Jan 20 - Feb 18 </strong></p>
+      <p>Power colour is <strong>Blue</strong>. Element is <strong>Air</strong>. <br>Top Love Matches are <strong>Gemini and Libra</strong>
+        <br><strong>A</strong> for adventurous
+        <br><strong>Q</strong> for quite emotional
+        <br><strong>U</strong> for unique
+        <br><strong>A</strong> for accommodating
+        <br><strong>R</strong> for rebellious
+        <br><strong>I</strong> for intuitive
+        <br><strong>U</strong> for unpredictable
+        <br><strong>S</strong> for sarcastic
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+    <div class="col-sm-4">
+      <img src="https://image.flaticon.com/icons/png/128/186/186675.png" alt="Pisces" title="Pisces" width="64" height="64">
+      <h4>PISCES</h4>
+      <p><strong>Feb 19 - Mar 20 </strong></p>
+      <p>Power colour is <strong>Blue</strong>. Element is <strong>Water</strong>. <br>Top Love Matches are <strong> Cancer and Scorpio</strong>
+        <br><strong>P</strong> for presence
+        <br><strong>I</strong> for intuitive
+        <br><strong>S</strong> for soft
+        <br><strong>C</strong> for compassionate
+        <br><strong>E</strong> for empathy
+        <br><strong>S</strong> for secretive
+        <br><a href="#portfolio"><strong>Read more</strong></a></p>
+    </div>
+  </div>
+</div>
+
+    <div id="portfolio" class="container-fluid text-center bg-grey">
+      <h2>Astrology In Detail</h2>
+      <h4>There is a lot more to your star sign</h4>
+  <br>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
+      <li data-target="#myCarousel" data-slide-to="8"></li>
+      <li data-target="#myCarousel" data-slide-to="9"></li>
+      <li data-target="#myCarousel" data-slide-to="10"></li>
+      <li data-target="#myCarousel" data-slide-to="11"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://image.flaticon.com/icons/svg/186/186664.svg" alt="ARIES" title="Aries"width="64" height="64";><br>
+        <p>Aries (♈) is the first astrological sign in the zodiac. It comes before Taurus, spanning the first 30 degrees of celestial longitude o to 30th degree.
+          Under the tropical zodiac, the Sun transits this sign from approximately March 20 to April 21 each year.
+          This time duration is exactly the first month of Solar Hijri calendar. The symbol of the ram is based on the Chrysomallus, the flying ram that provided the Golden Fleece </p>
+      </div>
+
+      <div class="item">
+        <img src="https://image.flaticon.com/icons/svg/186/186665.svg" alt="TAURUS" title="Taurus"width="64" height="64";>
+        <p>Taurus (♉) is the second astrological sign in the present zodiac. it comes after Aries and before Gemini. It spans from 30th to 60th degree of the celestial zodiac.
+          The bull is its zodiac symbol. It has a Fixed modality with a feminine polarity. It is ruled by Venus and it is the sign where the Moon is exalted.
+          The Sun transits in the sign of Taurus from approximately April 21 until May 20 in Western astrology. People born between these dates,
+          depending on which system of astrology they subscribe to, may be called Taureans.</p>
+      </div>
+
+      <div class="item">
+          <img src="https://image.flaticon.com/icons/svg/450/450989.svg" alt="GEMINI" title="Gemini"width="64" height="64";>
+        <p>Gemini (♊) is the third astrological sign in the zodiac. It comes after Taurus and before Cancer, originating from the constellation of Gemini.
+          Under the tropical zodiac, the sun transits this sign between May 21 and June 21. Gemini is represented by the twins Castor and Pollux,
+          who were granted shared half-immortality after the death of the mortal brother, Castor.<br></p>
+      </div>
+
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/1137/1137442.svg" alt="CANCER" title="Cancer"width="64" height="64";>
+      <p>Cancer (♋️) is the fourth astrological sign in the Zodiac. It comes after Gemini and before Leo. Originating from the constellation of Cancer.
+        It spans 90th to 120th celestial longitude. Under the tropical zodiac, the Sun transits this area between approximately June 21 and July 23
+        and under the sidereal zodiac, the Sun transits this area between approximately July 16 and August 15.</p>
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/png/128/186/186668.png" alt="Leo" title="Leo" width="64" height="64";>
+      <p>Leo (♌) (Greek: Λέων, Leōn), is the fifth astrological sign of the zodiac, originating from the constellation of Leo.
+        It comes after Cancer and before Virgo. The traditional Western zodiac associates Leo with the period between July 23 and August 22,
+        and the sign spans the 120th to 150th degree of celestial longitude.Leo is a fixed sign along with Taurus, Scorpio, and Aquarius.
+        Under the tropical zodiac, the Sun transits this area on average between July 23 and August 22 each year, and under the sidereal
+        zodiac, the Sun currently transits this area from approximately August 16 to September 15.
+        The symbol of the lion is based on the Nemean lion, a lion with an impenetrable hide. It is a northern sign and
+        its opposite southern sign is Aquarius.</p>
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/186/186669.svg" alt="VIRGO" title="Virgo" width="64" height="64";>
+      <p>Virgo (♍) (Greek: Παρθένος, Parthenos), is the sixth astrological sign in the Zodiac. It comes after Leo and before Libra.
+        It spans the 150-180th degree of the zodiac. Under the tropical zodiac, the Sun transits this area on average between August 23 and September 22,
+        and the Sun transits the constellation of Virgo from approximately September 16 to October 30. Individuals born during these dates,
+        depending on which system of astrology they subscribe to, may be called Virgos or Virgoans. </P>
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/1297/1297803.svg" alt="LIBRA" title="Libra"width="64" height="64";>
+      <p>Libra (♎) (Latin: weighing scales), is the seventh astrological sign of the zodiac, originating from the constellation of Libra.
+        It comes after Virgo and before Scorpio. The traditional Western zodiac associates Libra with the period between September 23 and October 22,
+        and the sign spans the 180th and 209th degree of celestial longitude. Under the tropical zodiac, Sun transits this area on average between (northern autumnal equinox)
+        September 23 and October 23, and under the sidereal zodiac, the sun currently transits the constellation of Libra from approximately October 16 to November 17.
+        The symbol of the scales is based on the Scales of Justice held by Themis, the Greek personification of divine law and custom. She became the inspiration for modern depictions of Lady Justice.
+        The ruling planet of Libra is Venus. Libra is the only zodiac constellation in the sky represented by an inanimate object
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/186/186671.svg" alt="SCOPIO" title="Scorpio"width="64" height="64";>
+      <p>Scorpio <♏> is the eighth astrological sign in the Zodiac. It comes after Libra and before Sagittarius, originating from the constellation of Scorpius.
+        It spans 210th to 240th ecliptic longitude. Under the tropical zodiac, the Sun transits this area on average from October 23 to November 22.
+        Under the sidereal zodiac, the Sun is in Scorpio from approximately November 16 to December 15.
+        Depending on which zodiac system one uses, an individual born under the influence of Scorpio may be called a Scorpio or a Scorpion.<br></p>
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/186/186672.svg" alt="SAGGITARIUS" title="Sagittarius"width="64" height="64";>
+      <p>Sagittarius (♐) (Greek: Τοξότης Toxotes, Latin: Sagittarius) is the ninth astrological sign, which is associated with the constellation
+      Sagittarius and spans 240–270th degrees of the zodiac. Under the tropical zodiac, the sun transits this sign between approximately November 23
+      and December 21. Greek mythology associates Sagittarius with the centaur Chiron, who mentored Achilles, a Greek hero of the Trojan War, in archery.
+      Sagittarius, the half human and half horse, is the centaur of mythology, the learned healer whose higher intelligence forms a bridge between Earth and
+      Heaven. Also known as the Archer, Sagittarius is represented by the symbol of a bow and arrow.</p>
+
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/450/450943.svg" alt="CAPRICON" title="Capricon"width="64" height="64";>
+      <p>Capricorn (♑) is the tenth astrological sign in the zodiac, originating from the constellation of Capricornus, the horned goat.
+      It spans the 270–300th degree of the zodiac, corresponding to celestial longitude. Under the tropical zodiac, the sun transits this area
+      from December 21 to January 21 each year, and under the sidereal zodiac, the sun transits the constellation of Capricorn from approximately
+      January 16 to February 16. In astrology, Capricorn is considered an earth sign, negative sign, and one of the four cardinal signs. Capricorn is
+      said to be ruled by the planet Saturn. In Vedic Astrology Capricorn was associated with the Crocodile but modern astrologers consider Capricorn
+      as Sea goat. Its symbol is based on the Sumerians' primordial god of wisdom and waters, Enki with the head and upper body of a goat and the l
+      ower body and tail of a fish.[6] Later known as Ea in Akkadian and Babylonian mythology, Enki was the god of intelligence (gestú, literally "ear"),
+      creation, crafts; magic; water, seawater and lakewater (a, aba, ab).</p>
+    </div>
+    <div class="item">
+      <img src="https://image.flaticon.com/icons/svg/1299/1299365.svg" alt="AQUARIUS" title="Aquarius"width="64" height="64";>
+      <p>Aquarius (♒) is the eleventh astrological sign in the Zodiac. Coming after Capricon and before Posces. Originating from the constellation Aquarius.
+        Under the tropical zodiac, the sun is in Aquarius typically between January 21 and February 18, while under the sidereal Zodiac,
+        the sun is in Aquarius from approximately February 15 to March 14, depending on leap year.<br></p>
+    </div>
+    <div class="item">
+    <img src="https://image.flaticon.com/icons/png/128/186/186675.png" alt="Pisces" title="Pisces" width="64" height="64">
+    <p>Pisces (♓️) is the twelfth astrological sign in the Zodiac. It comes after Aquarius. It spans 330th to 360th of celestial longitude.
+      Under the tropical zodiac the sun transits this area between February 19 and March 20 and under the sidereal zodiac,
+      the sun transits this area between approximately March 13 and April 13.
+      In classical interpretations, the symbol of the fish is derived from the ichthyocentaurs, who aided Aphrodite when she was born from the sea.<br></p>
+
+    </div>
+    <!-- Left and right controls -->
+    <br></br>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+  </div>
+<!--Container (Contact Section) -->
+<!--Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">Contact Us</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Contact us and we'll get back to you within 24 hours.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> London, UK</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +00 44208555555</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> threegems@astrologycentral.com</p>
+    </div>
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Your Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Your message" rows="5"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-info pull-left" type="submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>This website is created and designed by <a href="#about">the threegems</strong></a></p><!--sources include:<a href="https://www.horoscope.com/zodiac-signs/aries"</a>;<a href="https://www.tarot.com/astrology/zodiac-sign-colors"</a>--></p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+
+  function zodiac(day, month){
+   var zodiac =['', 'Capricorn', 'Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn'];
+   var last_day =['', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19];
+   return (day > last_day[month]) ? zodiac[month*1 + 1] : zodiac[month];
+  }
+  document.getElementById('test').onclick = function(){
+   document.getElementById('zodiac').innerHTML = zodiac(document.getElementById('days').value, document.getElementById('month').value);
+  }
+</script>
+<img src="https://cdn.theatlantic.com/assets/media/img/mt/2018/08/iss050e066094_large/lead_720_405.jpg?mod=1535549776" width="1600" height="400">;
+</style>
+
+</body>
+</html>
